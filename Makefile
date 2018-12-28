@@ -14,4 +14,4 @@ clean:
 	rm -rf .cpcache out lib_compiled/*
 	lein clean
 
-.PHONY: clj-build lein-build run clean
+.PHONY: init clj-build lein-build run clean
