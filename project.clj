@@ -1,7 +1,8 @@
 (defproject cljstest2 "0.0.1-SNAPSHOT"
   :min-lein-version "2.8.1"
   :dependencies [[org.clojure/clojure "1.10.0"]
-                 [org.clojure/clojurescript "1.10.439"]]
+                 [org.clojure/clojurescript "1.10.439"]
+                 #_[org.clojure/core.async "0.4.490"]]
   :plugins [[lein-cljsbuild "1.1.7"]]
   :cljsbuild {:builds
               [{:id "cljstest2"
