@@ -12,8 +12,8 @@ RUN apk add --no-cache --update make && \
         adduser -D appuser && \
         mkdir -p /app && \
         chown -R appuser /app
+USER appuser
 COPY --from=build /app/Makefile /app/package*.json /app/
 RUN make npm-install
 COPY --from=build /app /app
-USER appuser
 ENTRYPOINT ["make", "run"]
