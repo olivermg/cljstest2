@@ -1,4 +1,5 @@
-(ns cljstest2.core)
+(ns cljstest2.core
+  (:require [cljstest2.baz]))
 
 ;;;(println "Hello World!")
 
