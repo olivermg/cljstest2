@@ -1,5 +1,8 @@
+//require('./out/goog/bootstrap/nodejs.js');
+require('cljstest2');
+//require('./out/cljstest2/core.js');
+
 const Foo = require('foo');
-const Cljs = require('cljs');
 
 Foo.foo();
-Cljs.bar();
+cljstest2.core.bar();
