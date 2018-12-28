@@ -7,5 +7,5 @@ const Foo = require('foo');
 
 Foo.foo();
 cljstest2.core.bar();
-const r = cljstest2.baz.fun2(123);
-console.log(r);
+const r1 = cljstest2.baz.fun2(123);
+console.log(r1);
