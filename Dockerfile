@@ -1,14 +1,19 @@
-FROM clojure:lein-2.8.3-alpine
-
-ADD . /app
-
-RUN adduser -D appuser && \
-        chown -R appuser /app && \
-        apk add --no-cache --update make nodejs npm
-
-USER appuser
+FROM clojure:lein-2.8.3-alpine as build
 WORKDIR /app
+RUN apk add --no-cache --update make
+COPY Makefile project.clj /app/
+RUN make lein-deps
+COPY . /app
+RUN make lein-build
 
-RUN make init && make lein-build
-
+FROM node:10.15-alpine as run
+WORKDIR /app
+RUN apk add --no-cache --update make && \
+        adduser -D appuser && \
+        mkdir -p /app && \
+        chown -R appuser /app
+COPY --from=build /app/Makefile /app/package*.json /app/
+RUN make npm-install
+COPY --from=build /app /app
+USER appuser
 ENTRYPOINT ["make", "run"]
