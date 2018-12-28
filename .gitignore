@@ -3,4 +3,5 @@
 /node_modules
 /.cpcache
 /out
+/target
 /lib_compiled/*.js
