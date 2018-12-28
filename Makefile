@@ -1,3 +1,6 @@
+init:
+	npm install
+
 clj-build:
 	clj -m cljs.main -t node -O none -d out -o lib_compiled/cljstest2.js -c cljstest2.core
 
