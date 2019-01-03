@@ -16,4 +16,5 @@ USER appuser
 COPY --from=build /app/Makefile /app/package*.json /app/
 RUN make npm-install
 COPY --from=build /app /app
-ENTRYPOINT ["make", "run"]
+#ENTRYPOINT ["make", "run"]  # is not supported by heroku for some reason (heroku container:push web will fail)
+CMD make run
